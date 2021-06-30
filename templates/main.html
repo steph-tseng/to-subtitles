@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container justify-content-center">
+      <div class="col">
+        <div class="row justify-content-center">
+          <img
+            src="static/tosub.png"
+            height="100px"
+            width="auto"
+            class="justify-self-center"
+          />
+        </div>
+        <div class="row justify-content-center mt-5">
+          <form
+            action="/upload"
+            method="POST"
+            enctype="multipart/form-data"
+            class="form-group"
+          >
+            <h5 class="mt-5">Video</h5>
+            <div class="file-upload-wrapper form-group inputDnD">
+              <input
+                type="file"
+                id="file"
+                class="file-upload form-control-file"
+                data-title="Drag and drop a file"
+                accept="video/*"
+                onchange="readUrl('file')"
+              />
+            </div>
+            <h5 class="mt-5">Transcript</h5>
+            <div class="file-upload-wrapper inputDnD">
+              <input
+                type="file"
+                id="file2"
+                class="file-upload form-control-file"
+                data-title="Drag and drop a file"
+                accept="text/*"
+                onchange="readUrl('file2')"
+              />
+            </div>
+            <br />
+            <br />
+            <input type="submit" class="btn btn-info" />
+            <script>
+              function readUrl(id) {
+                let input = document.getElementById(id);
+                console.log("input", input);
+                if (input.files) {
+                  console.log(input.files);
+                  let fileName = input.files[0].name;
+                  input.setAttribute("data-title", fileName);
+                }
+              }
+            </script>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
